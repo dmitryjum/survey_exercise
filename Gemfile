@@ -21,7 +21,9 @@ gem "cssbundling-rails"
 gem "jbuilder"
 # Use Redis adapter to run Action Cable in production
 # gem "redis", ">= 4.0.1"
+gem "view_component", "~> 3.8"
 
+gem "simple_form", "~> 5.3"
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
 
@@ -59,7 +61,7 @@ group :test do
   gem "factory_bot_rails"
   gem "faker"
   gem "rails-controller-testing"
-  gem "rspec-rails", "~> 4.0.2"
+  gem "rspec-rails", "~> 6.1"
   gem "selenium-webdriver", "~> 4.9.0"
   gem "shoulda-matchers", "~> 5.3"
 end
