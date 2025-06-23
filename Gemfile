@@ -55,7 +55,7 @@ group :development do
 end
 
 group :test do
-  gem "capybara", "~> 3.39.1"
+  gem "capybara", "~> 3.40.0"
   gem "factory_bot_rails"
   gem "faker"
   gem "rails-controller-testing"
