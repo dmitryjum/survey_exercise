@@ -1,0 +1,11 @@
+<%= helpers.turbo_frame_tag dom_id(@survey),
+                            tag: :li,
+                            class: "flex items-center justify-between py-2 border-b" do %>
+  <span class="font-medium"><%= @survey.question %></span>
+
+  <%= form_with url: survey_responses_path(@survey),
+                class: "flex gap-2" do |f| %>
+    <%= f.button "Yes", name: :answer, value: :yes, class: "btn btn-sm btn-primary" %>
+    <%= f.button "No",  name: :answer, value: :no,  class: "btn btn-sm btn-secondary" %>
+  <% end %>
+<% end %>

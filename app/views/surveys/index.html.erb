@@ -1,16 +1,17 @@
-<p style="color: green"><%= notice %></p>
+<div class="max-w-2xl mx-auto mt-12">
+  <header class="mb-8">
+    <h1 class="text-3xl font-extrabold text-gray-900 mb-2">Surveys</h1>
+    <p class="text-gray-500">Create and manage your surveys below.</p>
+  </header>
 
-<% content_for :title, "Surveys" %>
+  <section class="mb-8 p-6 bg-white rounded-lg shadow">
+    <h2 class="text-lg font-semibold mb-4">Create a new survey</h2>
+    <%= render "new_survey" %>
+  </section>
 
-<h1>Surveys</h1>
-
-<div id="surveys">
-  <% @surveys.each do |survey| %>
-    <%= render survey %>
-    <p>
-      <%= link_to "Show this survey", survey %>
-    </p>
-  <% end %>
+  <section>
+    <ul id="survey_list" class="divide-y divide-gray-200 bg-white rounded-lg shadow">
+      <%= render SurveyRowComponent.with_collection(@surveys) %>
+    </ul>
+  </section>
 </div>
-
-<%= link_to "New survey", new_survey_path %>
