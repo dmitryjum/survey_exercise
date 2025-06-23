@@ -62,6 +62,6 @@ group :test do
   gem "faker"
   gem "rails-controller-testing"
   gem "rspec-rails", "~> 8.0"
-  gem "selenium-webdriver", "~> 4.9.0"
+  gem "selenium-webdriver", "~> 4.33.0"
   gem "shoulda-matchers", "~> 6.5"
 end
