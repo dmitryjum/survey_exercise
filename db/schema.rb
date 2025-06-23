@@ -13,7 +13,7 @@
 ActiveRecord::Schema[7.2].define(version: 2025_06_23_090538) do
   create_table "responses", force: :cascade do |t|
     t.integer "survey_id", null: false
-    t.boolean "answer"
+    t.integer "answer"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["survey_id"], name: "index_responses_on_survey_id"
