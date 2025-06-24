@@ -26,7 +26,6 @@ gem "view_component", "~> 3.8"
 gem "tailwindcss-rails", "~> 3.3.1"
 gem "tailwindcss-ruby"
 
-gem "simple_form", "~> 5.3"
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
 
@@ -65,6 +64,6 @@ group :test do
   gem "faker"
   gem "rails-controller-testing"
   gem "rspec-rails", "~> 8.0"
-  gem "selenium-webdriver", "~> 4.9.0"
+  gem "webdrivers"
   gem "shoulda-matchers", "~> 6.5"
 end
