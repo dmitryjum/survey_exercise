@@ -110,6 +110,7 @@ This project may benefit in the future from authentication and user models. If i
 7. **Survey Management:** Users can view, edit, or delete only their own surveys.
 8. **User Dashboard:** Each user can see their created surveys and responses.
 9. **Admin Features (optional):** Admins can moderate surveys and responses.
+10. **Pagination:** Add a "Load More Surveys" button to support infinite scrolling or progressive loading of surveys, improving performance and user experience for large datasets.
 
 **Implementation Strategies:**
 - Use Devise or similar gem for authentication.
