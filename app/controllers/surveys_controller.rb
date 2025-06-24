@@ -27,27 +27,6 @@ class SurveysController < ApplicationController
      AnswerFormComponent.new(survey: @survey))
   end
 
-  def update
-    respond_to do |format|
-      if @survey.update(survey_params)
-        format.html { redirect_to @survey, notice: "Survey was successfully updated." }
-        format.json { render :show, status: :ok, location: @survey }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @survey.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  def destroy
-    @survey.destroy!
-
-    respond_to do |format|
-      format.html { redirect_to surveys_path, status: :see_other, notice: "Survey was successfully destroyed." }
-      format.json { head :no_content }
-    end
-  end
-
   private
   
   def set_survey
