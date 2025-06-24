@@ -1,4 +1,5 @@
 class SurveysController < ApplicationController
+  include ActionView::RecordIdentifier
   before_action :set_survey, only: %i[ update destroy answer]
 
   def index
@@ -20,7 +21,8 @@ class SurveysController < ApplicationController
   end
 
   def answer
-    render AnswerFormComponent.new(survey: @survey)
+    render turbo_stream: turbo_stream.replace(dom_id(@survey),
+     AnswerFormComponent.new(survey: @survey))
   end
 
   def update
