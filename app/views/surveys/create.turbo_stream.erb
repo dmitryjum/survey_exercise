@@ -1,2 +1,7 @@
-<%= turbo_stream.prepend "survey_list", SurveyRowComponent.new(survey: @survey) %>
+<% if @previous_count.zero? %>
+  <%= turbo_stream.update "survey_list", SurveyRowComponent.new(survey: @survey) %>
+<% else %>
+  <%= turbo_stream.prepend "survey_list", SurveyRowComponent.new(survey: @survey) %>
+<% end %>
 <%= turbo_stream.replace "new_survey_form", partial: "new_survey" %>
+<%= turbo_stream.replace "survey_stats", SurveyStatsComponent.new(surveys_count: Survey.count, response_count: Response.count) %>

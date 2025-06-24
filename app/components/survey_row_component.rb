@@ -2,7 +2,6 @@
 
 class SurveyRowComponent < ViewComponent::Base
   with_collection_parameter :survey
-  # attr_reader :stats, :response_count
   def initialize(survey:)
     @survey = survey
   end

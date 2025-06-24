@@ -36,7 +36,7 @@
     </div>
 
     <div id="survey_list" class="space-y-4">
-      <% if @surveys.length == 0 %>
+      <% if @surveys_count.zero? %>
         <div class="bg-white rounded-lg shadow-sm border border-gray-200 text-center py-12">
           <div class="text-gray-500">
             <svg xmlns="http://www.w3.org/2000/svg" class="w-12 h-12 mx-auto mb-4 opacity-50" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -53,20 +53,6 @@
       <% end %>
     </div>
 
-    <% if @surveys.length > 0 %>
-      <div class="mt-12 text-center">
-        <div class="inline-flex items-center gap-2 px-4 py-2 bg-white rounded-full shadow-sm border border-gray-200">
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-indigo-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <rect x="3" y="10" width="4" height="11" rx="1" />
-            <rect x="9" y="3" width="4" height="18" rx="1" />
-            <rect x="15" y="14" width="4" height="7" rx="1" />
-          </svg>
-          <span class="text-sm font-medium text-gray-700">
-            <%= @surveys.length %> <% @surveys.length == 1 ? "survey" : "surveys" %> •
-            <%= @response_count %> total responses
-          </span>
-        </div>
-      </div>
-    <% end %>
+    <%= render SurveyStatsComponent.new(surveys_count: @surveys_count, response_count: @response_count) %>
   </div>
 </div>

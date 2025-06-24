@@ -4,12 +4,13 @@ class SurveysController < ApplicationController
 
   def index
     @surveys = Survey.includes(:responses).order(created_at: :desc)
+    @surveys_count = @surveys.count
     @response_count = Response.count
   end
 
   def create
-    @survey = Survey.new(survey_params)
-
+    @survey = Survey.build(survey_params)
+    @previous_count = Survey.count
     respond_to do |format|
       if @survey.save
         format.turbo_stream
@@ -48,11 +49,12 @@ class SurveysController < ApplicationController
   end
 
   private
-    def set_survey
-      @survey = Survey.find(params[:id])
-    end
+  
+  def set_survey
+    @survey = Survey.find(params[:id])
+  end
 
-    def survey_params
-      params.require(:survey).permit(:question)
-    end
+  def survey_params
+    params.require(:survey).permit(:question)
+  end
 end
