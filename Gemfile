@@ -23,7 +23,7 @@ gem "jbuilder"
 # gem "redis", ">= 4.0.1"
 gem "view_component", "~> 3.8"
 
-gem "tailwindcss-rails", "~> 3.3.1"
+gem "tailwindcss-rails", "~> 4.2.3"
 gem "tailwindcss-ruby"
 
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
