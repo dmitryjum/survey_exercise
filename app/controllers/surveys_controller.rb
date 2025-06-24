@@ -1,6 +1,5 @@
 class SurveysController < ApplicationController
   include ActionView::RecordIdentifier
-  before_action :set_survey, only: %i[ update destroy answer]
 
   def index
     @surveys = Survey.includes(:responses).order(created_at: :desc)
@@ -23,15 +22,12 @@ class SurveysController < ApplicationController
   end
 
   def answer
+    @survey = Survey.find(params[:id])
     render turbo_stream: turbo_stream.replace(dom_id(@survey),
      AnswerFormComponent.new(survey: @survey))
   end
 
   private
-  
-  def set_survey
-    @survey = Survey.find(params[:id])
-  end
 
   def survey_params
     params.require(:survey).permit(:question)

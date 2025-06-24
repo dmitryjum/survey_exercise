@@ -1,6 +1,5 @@
 class ResponsesController < ApplicationController
   include ActionView::RecordIdentifier
-  
   def create
     @survey = Survey.find(params[:survey_id])
     @response = @survey.responses.build(response_params)
