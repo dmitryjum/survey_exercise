@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  resources :surveys do
+  resources :surveys, except: [:show, :edit] do
+    member { get :answer }
     resources :responses, only: :create
   end
   root "surveys#index"
