@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :surveys, except: [:show, :edit] do
+  resources :surveys, only: [ :index, :create ] do
     member { get :answer }
     resources :responses, only: :create
   end

@@ -1,8 +1,19 @@
-<li id=<%= dom_id(@survey) %> class="flex items-center justify-between py-2 border-b">
-  <span class="font-medium"><%= @survey.question %></span>
+<div id=<%= dom_id(@survey) %> class="bg-white rounded-lg shadow-sm border border-gray-200 border-l-4 border-l-blue-500 transition-all duration-200 hover:shadow-md">
+  <div class="p-6">
+    <div class="flex items-center justify-between">
+      <div class="flex-1">
+        <h3 class="text-lg font-semibold text-gray-900 mb-2"><%= @survey.question %></h3>
+        <p class="text-sm text-gray-600">Choose your answer:</p>
+      </div>
+      <%= form_with url: survey_responses_path(@survey), class: "flex gap-3 ml-6" do |f| %>
+        <%= f.button "Yes", name: :answer, value: :yes,
+         class: "bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-md font-medium transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2"
+        %>
 
-  <%= form_with url: survey_responses_path(@survey), class: "flex gap-2" do |f| %>
-    <%= f.button "Yes", name: :answer, value: :yes, class: "btn btn-sm btn-primary" %>
-    <%= f.button "No",  name: :answer, value: :no,  class: "btn btn-sm btn-secondary" %>
-  <% end %>
-</li>
+        <%= f.button "No",  name: :answer, value: :no,
+          class: "border border-red-300 text-red-700 hover:bg-red-50 px-6 py-2 rounded-md font-medium transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
+        %>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -1,14 +1,15 @@
 class SurveysController < ApplicationController
   include ActionView::RecordIdentifier
-  before_action :set_survey, only: %i[ update destroy answer]
 
   def index
     @surveys = Survey.includes(:responses).order(created_at: :desc)
+    @surveys_count = @surveys.count
+    @response_count = Response.count
   end
 
   def create
-    @survey = Survey.new(survey_params)
-
+    @survey = Survey.build(survey_params)
+    @previous_count = Survey.count
     respond_to do |format|
       if @survey.save
         format.turbo_stream
@@ -21,37 +22,14 @@ class SurveysController < ApplicationController
   end
 
   def answer
+    @survey = Survey.find(params[:id])
     render turbo_stream: turbo_stream.replace(dom_id(@survey),
      AnswerFormComponent.new(survey: @survey))
   end
 
-  def update
-    respond_to do |format|
-      if @survey.update(survey_params)
-        format.html { redirect_to @survey, notice: "Survey was successfully updated." }
-        format.json { render :show, status: :ok, location: @survey }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @survey.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  def destroy
-    @survey.destroy!
-
-    respond_to do |format|
-      format.html { redirect_to surveys_path, status: :see_other, notice: "Survey was successfully destroyed." }
-      format.json { head :no_content }
-    end
-  end
-
   private
-    def set_survey
-      @survey = Survey.find(params[:id])
-    end
 
-    def survey_params
-      params.require(:survey).permit(:question)
-    end
+  def survey_params
+    params.require(:survey).permit(:question)
+  end
 end

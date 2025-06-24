@@ -9,4 +9,8 @@ class SurveyRowComponent < ViewComponent::Base
   def stats
     @survey.stats
   end
+
+  def response_count
+    @survey.responses.count
+  end
 end
