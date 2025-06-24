@@ -1,8 +1,0 @@
-<%= turbo_frame_tag "new_survey" do %>
-  <%= form_with model: Survey.new, class: "flex gap-2 items-center" do |f| %>
-    <%= f.text_field :question, placeholder: "Type your question…",
-                     autofocus: true,
-                     class: "input w-full" %>
-    <%= f.submit "Save", class: "px-3 py-1.5 rounded font-medium text-white bg-indigo-600 hover:bg-indigo-700" %>
-  <% end %>
-<% end %>

@@ -5,9 +5,6 @@ class SurveysController < ApplicationController
     @surveys = Survey.includes(:responses).order(created_at: :desc)
   end
 
-  def new
-  end
-
   def create
     @survey = Survey.new(survey_params)
 
