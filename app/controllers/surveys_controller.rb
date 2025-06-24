@@ -13,10 +13,9 @@ class SurveysController < ApplicationController
     respond_to do |format|
       if @survey.save
         format.turbo_stream
-        format.html { redirect_to root_path, notice: "Survey created." }
+        format.html { redirect_to root_path }
       else
-        format.turbo_stream { render partial: "form", status: :unprocessable_entity }
-        format.html { render :index, status: :unprocessable_entity }
+        format.html { redirect_to root_path, alert: "Failed to create survey. Errors: #{@survey.errors.full_message}" }
       end
     end
   end

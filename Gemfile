@@ -26,7 +26,6 @@ gem "view_component", "~> 3.8"
 gem "tailwindcss-rails", "~> 3.3.1"
 gem "tailwindcss-ruby"
 
-gem "simple_form", "~> 5.3"
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
 

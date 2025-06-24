@@ -284,9 +284,6 @@ GEM
       websocket (~> 1.0)
     shoulda-matchers (6.5.0)
       activesupport (>= 5.2.0)
-    simple_form (5.3.1)
-      actionpack (>= 5.2)
-      activemodel (>= 5.2)
     sprockets (4.2.2)
       concurrent-ruby (~> 1.0)
       logger
@@ -356,7 +353,6 @@ DEPENDENCIES
   rubocop-rails-omakase
   selenium-webdriver (~> 4.9.0)
   shoulda-matchers (~> 6.5)
-  simple_form (~> 5.3)
   sprockets-rails
   sqlite3 (>= 1.4)
   stimulus-rails
