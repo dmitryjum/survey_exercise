@@ -4,6 +4,7 @@ class SurveysController < ApplicationController
 
   def index
     @surveys = Survey.includes(:responses).order(created_at: :desc)
+    @response_count = Response.count
   end
 
   def create
