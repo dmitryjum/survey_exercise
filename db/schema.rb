@@ -10,12 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2025_06_23_090538) do
-  create_table "responses", force: :cascade do |t|
-    t.integer "survey_id", null: false
-    t.integer "answer"
+ActiveRecord::Schema[7.2].define(version: 2025_06_30_162929) do
+  create_table "answers", force: :cascade do |t|
+    t.string "text"
+    t.integer "survey_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "responses", force: :cascade do |t|
+    t.integer "survey_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "answer_id"
     t.index ["survey_id"], name: "index_responses_on_survey_id"
   end
 

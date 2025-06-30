@@ -2,7 +2,8 @@ class ResponsesController < ApplicationController
   include ActionView::RecordIdentifier
   def create
     @survey = Survey.find(params[:survey_id])
-    @response = @survey.responses.build(response_params)
+    @answer = @survey.answers.find(params[:answer])
+    @response = @answer.responses.build(response_params)
 
     respond_to do |format|
       if @response.save
@@ -17,6 +18,6 @@ class ResponsesController < ApplicationController
   private
 
   def response_params
-    params.permit(:answer)
+    params.permit(:survey_id)
   end
 end
