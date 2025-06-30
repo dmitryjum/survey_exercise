@@ -20,14 +20,14 @@
 
   <body>
     <main>
-      <div class="container">
-        <% if notice %>
-          <%= render "layouts/flash/notice", message: notice %>
-        <% end %>
+      <% if notice %>
+        <%= render partial: "layouts/flash/notice", message: notice %>
+      <% end %>
 
-        <% if alert %>
-          <%= render "layouts/flash/alert", message: alert %>
-        <% end %>
+      <% if alert %>
+        <%= render partial: "layouts/flash/alert", message: alert %>
+      <% end %>
+      <div class="container">
       </div>
       <%= yield %>
     </main>
