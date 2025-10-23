@@ -21,7 +21,7 @@ gem "cssbundling-rails"
 gem "jbuilder"
 # Use Redis adapter to run Action Cable in production
 # gem "redis", ">= 4.0.1"
-gem "view_component", "~> 3.8"
+gem "view_component", "~> 4.1"
 
 gem "tailwindcss-rails", "~> 3.3.1"
 gem "tailwindcss-ruby"
